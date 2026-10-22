@@ -1,5 +1,4 @@
-*ignored_file
-*.gitignore
+ignore.gitignore
 
 my_env/
 .venv/
