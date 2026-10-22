@@ -55,7 +55,7 @@ The Python packages required to run the project are listed in
 
 ### 1. Clone the repository
 
-    git clone YOUR_GITHUB_REPOSITORY_URL
+    git clone "https://github.com/ph4848/Movie_table_api.git"
     cd Movie_table
 
 Replace the example repository URL with your actual GitHub URL.
