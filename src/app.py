@@ -1,16 +1,9 @@
-import requests
 import sqlite3
 from fastapi_offline import FastAPIOffline
 
 app = FastAPIOffline()
 
 dbname = 'MoviesInfo.db'
-
-def init_db():
-    conn = sqlite3.connect(dbname)
-    conn.close()
-#----------------------------------------
-#init_db()
 
 def create_table():
     query = '''
@@ -79,7 +72,8 @@ DELETE FROM movies WHERE id = ?
     cursor = conn.cursor()
     cursor.execute(query, (id,))
     conn.commit()
-    conn.close()   
+    conn.close()
+    return "Done!"
 #----------------------------------------
 @app.put("/update_by_id/{id}/{new_imdb_rate}/{new_year}")
 def update_record_by_id(id: int, new_imdb_rate: float, new_year: int):
@@ -91,3 +85,5 @@ UPDATE movies SET imdb_rate = ? , year = ? WHERE id = ?
     cursor.execute(query, (new_imdb_rate, new_year, id))
     conn.commit()
     conn.close()
+    return "Done!"
+#python -m uvicorn src.app:app
